@@ -19,7 +19,7 @@ env:
   GIT_REGISTRY_GITHUB: "ghcr.io"
   GIT_USER_GITHUB: ${{secrets.GIT_USER_GITHUB}}
   GIT_TOKEN_GITHUB: ${{secrets.GIT_TOKEN_GITHUB}}
-  IMAGE_NAME: "$GIT_REGISTRY_GITHUB/$GIT_USER_GITHUB/$DOCKER_IMAGE:${{github.ref_name}}"
+  IMAGE_NAME: "${{GIT_REGISTRY_GITHUB}}/${{GIT_USER_GITHUB}}/${{DOCKER_IMAGE}}:${{github.ref_name}}"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -39,7 +39,7 @@ jobs:
 
       # Build
       - name: Docker build image
-        run: docker build -f ./dind-docker-debian/Dockerfile --tag $IMAGE_NAME .
+        run: docker build -f ./dind-docker-debian/Dockerfile --tag $GIT_REGISTRY_GITHUB/$GIT_USER_GITHUB/$DOCKER_IMAGE:${{github.ref_name}} .
 
       # Push
       - name: Push to registry
