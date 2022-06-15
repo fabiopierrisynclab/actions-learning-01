@@ -46,4 +46,4 @@ jobs:
 
       # Push
       - name: Push to registry
-        run: docker push $IMAGE_NAME:${{github.ref_name}}
+        run: docker push $GIT_REGISTRY_GITHUB/$GIT_USER_GITHUB/$DOCKER_IMAGE:${{github.ref_name}}
