@@ -11,7 +11,7 @@ SHELL ["/bin/bash", "-xeo", "pipefail", "-c"]
 
 RUN apt update && \
 	apt upgrade -y && \
-	apt install -y sudo nano ca-certificates curl wget systemd systemd-sysv \
+	apt install -y sudo nano vim ca-certificates curl wget systemd systemd-sysv \
 		git tzdata htop tree iputils-ping net-tools && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

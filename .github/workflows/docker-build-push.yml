@@ -15,7 +15,7 @@ on:
 
 # Env variable
 env:
-  DOCKER_IMAGE: "docker-dind-debian"
+  DOCKER_IMAGE: "docker-dind-debian-prod"
   GIT_REGISTRY_GITHUB: "ghcr.io"
   GIT_USER_GITHUB: ${{secrets.GIT_USER_GITHUB}}
   GIT_TOKEN_GITHUB: ${{secrets.GIT_TOKEN_GITHUB}}
