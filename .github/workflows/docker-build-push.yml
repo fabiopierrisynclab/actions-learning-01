@@ -40,7 +40,9 @@ jobs:
 
       # Build
       - name: Docker build image
-        run: docker build -f ./dind-docker-debian/Dockerfile --tag $GIT_REGISTRY_GITHUB/$GIT_USER_GITHUB/$DOCKER_IMAGE:${{github.ref_name}} .
+        run: |
+          cd dind-docker-debian
+          docker build -f ./Dockerfile --tag $GIT_REGISTRY_GITHUB/$GIT_USER_GITHUB/$DOCKER_IMAGE:${{github.ref_name}} ..
 
       # Push
       - name: Push to registry
