@@ -34,6 +34,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      # Setup environment variables
+      - name: Setup environment variables
+      - run: echo "IMAGE_FULL_NAME=$GIT_REGISTRY_GITHUB/$GIT_USER_GITHUB/$DOCKER_IMAGE:${{github.ref_name}}" >> $GITHUB_ENV
+
       # Login Registry
       - name: Docker Login Registry
         run: docker login $GIT_REGISTRY_GITHUB -u $GIT_USER_GITHUB -p $GIT_TOKEN_GITHUB
@@ -42,8 +46,8 @@ jobs:
       - name: Docker build image
         run: |
           cd dind-docker-debian
-          docker build -f ./Dockerfile --tag $GIT_REGISTRY_GITHUB/$GIT_USER_GITHUB/$DOCKER_IMAGE:${{github.ref_name}} .
+          docker build -f ./Dockerfile --tag $IMAGE_FULL_NAME .
 
       # Push
       - name: Push to registry
-        run: docker push $GIT_REGISTRY_GITHUB/$GIT_USER_GITHUB/$DOCKER_IMAGE:${{github.ref_name}}
+        run: docker push $IMAGE_FULL_NAME
