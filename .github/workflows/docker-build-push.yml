@@ -36,7 +36,7 @@ jobs:
 
       # Setup environment variables
       - name: Setup environment variables
-      - run: echo "IMAGE_FULL_NAME=$GIT_REGISTRY_GITHUB/$GIT_USER_GITHUB/$DOCKER_IMAGE:${{github.ref_name}}" >> $GITHUB_ENV
+        run: echo "IMAGE_FULL_NAME=$GIT_REGISTRY_GITHUB/$GIT_USER_GITHUB/$DOCKER_IMAGE:${{github.ref_name}}" >> $GITHUB_ENV
 
       # Login Registry
       - name: Docker Login Registry
