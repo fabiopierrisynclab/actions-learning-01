@@ -19,7 +19,8 @@ env:
   GIT_REGISTRY_GITHUB: "ghcr.io"
   GIT_USER_GITHUB: ${{secrets.GIT_USER_GITHUB}}
   GIT_TOKEN_GITHUB: ${{secrets.GIT_TOKEN_GITHUB}}
-  IMAGE_NAME: "${{GIT_REGISTRY_GITHUB}}/${{GIT_USER_GITHUB}}/${{DOCKER_IMAGE}}:${{github.ref_name}}"
+  # come si costruiscono le variabili complesse?
+  #IMAGE_NAME: "${{GIT_REGISTRY_GITHUB}}/${{GIT_USER_GITHUB}}/${{DOCKER_IMAGE}}:${{github.ref_name}}"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
